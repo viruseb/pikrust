@@ -53,13 +53,13 @@ impl Line {
     }
 
     pub fn show_line(&self) {
-        let str:string = string::Empty;
+        let str:ColoredString;
         
         for h in self.holes {
             if h.is_done {
-                str += h.value.to_string().red() + ' ';
+                str += (h.value.to_string() + " ").red();
             } else {
-                str += h.value.to_string() + ' ';
+                str += h.value.to_string() + " ";
             }
         }
         str += ' ';
@@ -70,6 +70,6 @@ impl Line {
                 CellStatus::Filled => str += '\u{25A3}',
             } 
         }
-        println!(str);
+        println!("{}",str);
     }
 }
